@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+</head>
+<style>
+#map {width: 1900px; height: 950px}
+</style>
+<body>
+    <div id="map"></div>
+</body>
+<script>
+    var map_center = [-37.72941, 144.94258];
+    var mapOptions = {
+      center: map_center,
+      zoom: 5.5
+    }
+    var map = L.map('map', mapOptions);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    
+    // Places
+    batanes = [20.37084, 121.91426];
+    batanes_marker = L.marker(batanes).addTo(map);
+    
+    switzerland = [46.9143, 7.9332];
+    switzerland_circle = L.circle(switzerland, {radius: 10000, color: 'red'}).addTo(map);
+    
+    south_korea = [37.5664, 126.9749];
+    south_marker = L.marker(south_korea).addTo(map);
+    
+    los_angeles = [34.0409, -118.2517];
+    los_angeles_circle = L.circle(los_angeles, {radius: 15000, color: 'pink'}).addTo(map);
+    
+    madrid = [40.3439, -3.7374];
+    madrid_circle = L.circle(madrid, {radius: 10000, color: 'red'}).addTo(map);
+    
+    var iceland = [[78.6037, 16.7569],[78.5579, 17.5768],[78.4563, 16.2868],[78.3983, 16.8077]];
+    var polygon = L.polygon(iceland, {color: 'red'}).addTo(map);
+
+    var kaus = 
+        [[-37.72941, 144.94258],[-37.73190,144.94219]];
+    polyline = L.polyline(kaus, {color: 'red'}).addTo(map);
+
+    var kaus1 = 
+        [[-37.73081,144.94237],[-37.72980,144.94623]];
+    polyline = L.polyline(kaus1, {color: 'red'}).addTo(map);
+    
+    var kaus2 = 
+        [[-37.73081,144.94237],[-37.73227,144.94583]];
+    polyline = L.polyline(kaus2, {color: 'red'}).addTo(map);
+
+    london = [51.5109,-0.1208];
+    london_circle = L.circle(london, {radius: 15000, color: 'pink'}).addTo(map);
+
+    canada = [49.2369,-123.0688];
+    canada_circle = L.circle(canada, {radius: 15000, color: 'pink'}).addTo(map);
+    </script>
+</html>
